@@ -1,0 +1,98 @@
+/********** Base styles **********/
+* {
+    box-sizing: border-box;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .container_menu {
+    display: flex;
+  }
+ 
+  .container_menu > .product_chicken, 
+  .container_menu > .product_beef,
+  .container_menu > .product_sushi {
+    border-color: black;
+    border: solid;
+    margin: 0px 10px 0px 10px;
+    background-color: grey;
+  }
+  
+  .container_menu .product_chicken_text,
+  .container_menu .product_beef_text,
+  .container_menu .product_sushi_text {
+    margin: 5px;
+  }
+
+  .container_menu .product_chicken_name p,
+  .container_menu .product_beef_name p,
+  .container_menu .product_sushi_name p {
+    width: 125px;
+    text-align: center;
+    margin: 0;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-width: 2px;
+  }
+
+  .container_menu .product_chicken_name,
+  .container_menu .product_beef_name,
+  .container_menu .product_sushi_name {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+.container_menu .product_beef_name p {
+  background-color: red;
+  color: white;
+  border-color: black;
+}
+
+.container_menu .product_chicken_name p {
+  background-color: pink;
+}
+
+.container_menu .product_sushi_name p {
+  background-color: yellow;
+}
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    .container_menu {
+      flex-wrap: wrap;
+      width: 100%;  
+    }
+    .container_menu .product_chicken,
+    .container_menu .product_beef {
+      width: calc(50% - 20px);
+      margin-bottom: 20px;
+    }
+    .container_menu .product_sushi {
+      width: 100%;
+    }
+  }
+  @media (max-width: 768px) {
+    .container_menu {
+      flex-wrap: wrap;
+      width: 100%;  
+    }
+
+    .container_menu .product_chicken, 
+    .container_menu .product_beef,
+    .container_menu .product_sushi {
+      width: 100%;
+    }
+
+    .container_menu .product_beef {
+      margin: 20px 10px;
+    }
+
+
+  }
+  
+  
+
+  
