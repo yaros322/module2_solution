@@ -2,11 +2,98 @@
 * {
     box-sizing: border-box;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
 
   h1 {
     text-align: center;
     margin-bottom: 15px;
   }
+
+
+
+  .header {
+    background-color: grey;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .header a {
+    color: #000;
+  }
+
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+
+  .header li {
+    border-bottom: 1px solid #000;
+
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    text-align: center;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  } 
 
   .container_menu {
     display: flex;
@@ -15,8 +102,6 @@
   .container_menu > .product_chicken, 
   .container_menu > .product_beef,
   .container_menu > .product_sushi {
-    border-color: black;
-    border: solid;
     margin: 0px 10px 0px 10px;
     background-color: grey;
   }
@@ -27,15 +112,12 @@
     margin: 5px;
   }
 
-  .container_menu .product_chicken_name p,
-  .container_menu .product_beef_name p,
-  .container_menu .product_sushi_name p {
-    width: 125px;
+  .container_menu .product_chicken_name h3,
+  .container_menu .product_beef_name h3,
+  .container_menu .product_sushi_name h3 {
+    width: 100%;
     text-align: center;
     margin: 0;
-    border-left-style: solid;
-    border-bottom-style: solid;
-    border-width: 2px;
   }
 
   .container_menu .product_chicken_name,
@@ -46,19 +128,24 @@
     justify-content: right;
 }
 
-.container_menu .product_beef_name p {
-  background-color: red;
-  color: white;
-  border-color: black;
-}
+  .container_menu > .product_chicken > .section_end,
+  .container_menu > .product_beef > .section_end,
+  .container_menu > .product_sushi > .section_end {
+    display: flex;
+    margin: 10px 5px;
+  }
 
-.container_menu .product_chicken_name p {
-  background-color: pink;
-}
+  .container_menu > .product_chicken > .section_end > .section_end_text,
+  .container_menu > .product_beef > .section_end > .section_end_text,
+  .container_menu > .product_sushi > .section_end > .section_end_text {
+    margin: 0;
+  }
 
-.container_menu .product_sushi_name p {
-  background-color: yellow;
-}
+  .container_menu > .product_chicken > .section_end > a,
+  .container_menu > .product_beef > .section_end > a,
+  .container_menu > .product_sushi > .section_end > a {
+    margin: auto 10px;
+  }
 
   @media (min-width: 768px) and (max-width: 991px) {
     .container_menu {
@@ -73,6 +160,8 @@
     .container_menu .product_sushi {
       width: 100%;
     }
+
+
   }
   @media (max-width: 768px) {
     .container_menu {
@@ -90,7 +179,42 @@
       margin: 20px 10px;
     }
 
-
+    .header .menu-icon {
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+      padding: 28px 20px;
+      position: relative;
+      user-select: none;
+    }
+    
+    .header .menu-icon .navicon {
+      background: #333;
+      display: block;
+      height: 2px;
+      position: relative;
+      transition: background .2s ease-out;
+      width: 18px;
+    }
+    
+    .header .menu-icon .navicon:before,
+    .header .menu-icon .navicon:after {
+      background: #333;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all .2s ease-out;
+      width: 100%;
+    }
+    
+    .header .menu-icon .navicon:before {
+      top: 5px;
+    }
+    
+    .header .menu-icon .navicon:after {
+      top: -5px;
+    }
   }
   
   
